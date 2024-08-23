@@ -11,6 +11,6 @@ namespace SchoolManagementApp.MVC.Data
         public string? Grade { get; set; }
 
         public virtual Class? Class { get; set; }
-        public virtual Lecturer? Student { get; set; }
+        public virtual Student? Student { get; set; }
     }
 }

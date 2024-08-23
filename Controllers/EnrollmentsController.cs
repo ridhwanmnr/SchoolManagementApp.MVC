@@ -51,7 +51,7 @@ namespace SchoolManagementApp.MVC.Controllers
         public IActionResult Create()
         {
             ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id");
-            ViewData["StudentId"] = new SelectList(_context.Lecturers, "Id", "Id");
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id");
             return View();
         }
 
@@ -69,7 +69,7 @@ namespace SchoolManagementApp.MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id", enrollment.ClassId);
-            ViewData["StudentId"] = new SelectList(_context.Lecturers, "Id", "Id", enrollment.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -87,7 +87,7 @@ namespace SchoolManagementApp.MVC.Controllers
                 return NotFound();
             }
             ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id", enrollment.ClassId);
-            ViewData["StudentId"] = new SelectList(_context.Lecturers, "Id", "Id", enrollment.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -124,7 +124,7 @@ namespace SchoolManagementApp.MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id", enrollment.ClassId);
-            ViewData["StudentId"] = new SelectList(_context.Lecturers, "Id", "Id", enrollment.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", enrollment.StudentId);
             return View(enrollment);
         }
 

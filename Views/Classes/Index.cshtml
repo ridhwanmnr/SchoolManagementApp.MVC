@@ -31,15 +31,16 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Course.Id)
+                @item.Course.Code - @item.Course.Name
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lecturer.Id)
+                @item.Lecturer.FirstName @item.Lecturer.LastName
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
                 <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">Delete</button>
+                <a asp-action="ManageEnrollments" asp-route-classId="@item.Id" class="btn btn-primary">Manage Enrollment</a>
             </td>
         </tr>
         }

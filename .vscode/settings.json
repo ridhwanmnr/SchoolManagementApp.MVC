@@ -1,7 +1,0 @@
-{
-    "dotnet.preferCSharpExtension": true,
-    "dotnet.server.useOmnisharp": false,
-    "omnisharp.enableAsyncCompletion": true,
-    "razor.format.codeBlockBraceOnNextLine": true,
-    "editor.mouseWheelZoom": true
-}

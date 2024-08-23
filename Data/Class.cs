@@ -18,5 +18,6 @@ namespace SchoolManagementApp.MVC.Data
         public virtual Course? Course { get; set; }
         public virtual Lecturer? Lecturer { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
+        = new List<Enrollment>();
     }
 }

@@ -8,7 +8,6 @@ namespace SchoolManagementApp.MVC.Data
         public Lecturer()
         {
             Classes = new HashSet<Class>();
-            Enrollments = new HashSet<Enrollment>();
         }
 
         public int Id { get; set; }
@@ -16,6 +15,5 @@ namespace SchoolManagementApp.MVC.Data
         public string LastName { get; set; } = null!;
 
         public virtual ICollection<Class> Classes { get; set; }
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
