@@ -1,5 +1,8 @@
 using Auth0.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
+using AspNetCoreHero.ToastNotification.Notyf;
 using SchoolManagementApp.MVC.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +18,12 @@ builder.Services.AddAuth0WebAppAuthentication(options =>
 });
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddNotyf(config=> 
+{ 
+    config.DurationInSeconds = 5;
+    config.IsDismissable = true;
+    config.Position = NotyfPosition.TopRight; 
+});
 
 var app = builder.Build();
 
@@ -35,6 +44,8 @@ app.UseRouting();
 app.UseAuthentication();
 // what can u do?
 app.UseAuthorization();
+
+app.UseNotyf();
 
 app.MapControllerRoute(
     name: "default",

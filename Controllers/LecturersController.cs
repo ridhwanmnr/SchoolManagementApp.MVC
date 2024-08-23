@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using SchoolManagementApp.MVC.Data;
 
 namespace SchoolManagementApp.MVC.Controllers
@@ -14,9 +15,11 @@ namespace SchoolManagementApp.MVC.Controllers
     public class LecturersController : Controller
     {
         private readonly SchoolManagementDbContext _context;
+        private readonly INotyfService _notyfService;
 
-        public LecturersController(SchoolManagementDbContext context)
+        public LecturersController(SchoolManagementDbContext context, INotyfService notyfService)
         {
+            _notyfService = notyfService;
             _context = context;
         }
 
@@ -62,6 +65,7 @@ namespace SchoolManagementApp.MVC.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(lecturer);
+                _notyfService.Success("Lecturer added successfully");
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -150,6 +154,7 @@ namespace SchoolManagementApp.MVC.Controllers
             if (lecturer != null)
             {
                 _context.Lecturers.Remove(lecturer);
+                _notyfService.Warning("Lecturer remove successfully");
             }
             
             await _context.SaveChangesAsync();
